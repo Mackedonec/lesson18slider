@@ -38,8 +38,12 @@
         gotoNth(currentSlide + 1)
     }
 
-    function playHandler() {
+    function tick() {
         timerId = setInterval(gotoNext, interval);
+    }
+
+    function playHandler() {
+        tick();
         pauseBtn.innerHTML = FA_PAUSE;
         isPlaying = true;
     }
@@ -103,7 +107,7 @@
 
     function initApp() {
         initListeners();
-        timerId = setInterval(gotoNext, interval);
+        tick()
     };
 
     initApp();
